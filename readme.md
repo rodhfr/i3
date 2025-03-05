@@ -1,7 +1,8 @@
 # Instlal apps
 sudo dnf update
 sudo dnf upgrade
-sudo dnf install xclip 
+sudo dnf install xclip kitty feh python3-pip
+pip install autotiling
 # Create the $HOME/opt destination folder
 mkdir -p ~/opt
 # Download the AppImage inside it
