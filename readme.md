@@ -34,5 +34,10 @@ echo -e '#!/bin/sh\n\nxrdb $HOME/.Xresources\nxsetroot -solid grey\n#x-terminal-
 
 sudo bash -c 'echo -e "[Unit]\nDescription=remote desktop service (vnc)\nAfter=syslog.target network.target\n\n[Service]\nType=forking\nUser=rodhfr\n\n# Clean any existing files in /tmp/.x11-unix environment\nExecStartPre=/bin/sh -c \"/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :\"\nExecStart=/usr/bin/vncserver -geometry 1920x1080 -depth 16 -dpi 120 -alwaysshared -localhost %i\nExecStop=/usr/bin/vncserver -kill %i\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/vncserver@:1.service'
 
-systemctl daemon-reload
-systemctl enable vncserver@:1.service
+sudo systemctl daemon-reload
+sudo systemctl enable vncserver@:1.service
+
+# setup snapcast
+# there is a copr repo it was the second one in google
+# there is a pipewire module that does everything
+# https://docs.pipewire.org/page_module_snapcast_discover.html
