@@ -3,9 +3,13 @@ sudo dnf update
 sudo dnf upgrade
 sudo dnf install xclip kitty feh python3-pip bat rofi flatpak -y
 pip install autotiling
-# add flathub and apps
+
+# bashrc
+echo 'alias xclip='xclip -selection clipboard' >> ~/.bashrc
 echo 'export PATH=$PATH:/var/lib/flatpak/exports/bin' >> ~/.bashrc
 source ~/.bashrc
+
+# add flathub and apps
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub it.mijorus.gearlever
 # Create the $HOME/opt destination folder
