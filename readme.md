@@ -1,11 +1,11 @@
 # Instlal apps
 sudo dnf update
 sudo dnf upgrade
-sudo dnf install xclip kitty feh python3-pip bat rofi flatpak -y
+sudo dnf install xclip fuse-libs fuse-overlayfs kitty feh python3-pip bat rofi flatpak -y
 pip install autotiling
 
 # bashrc
-echo 'alias xclip='xclip -selection clipboard' >> ~/.bashrc
+echo "alias xclip='xclip -selection clipboard'" >> ~/.bashrc
 echo 'export PATH=$PATH:/var/lib/flatpak/exports/bin' >> ~/.bashrc
 source ~/.bashrc
 
@@ -16,9 +16,12 @@ flatpak install flathub it.mijorus.gearlever
 mkdir -p ~/opt
 # Download the AppImage inside it
 wget -O ~/opt/Espanso.AppImage 'https://github.com/espanso/espanso/releases/download/v2.2.1/Espanso-X11.AppImage'
+mv ~/opt/Espanso.AppImage ~/opt/espanso
 # Make it executable
 # this wget is download another file renme to Espanso.AppImage
 # i did use gearlever also
-chmod u+x ~/opt/Espanso.AppImage
+chmod u+x ~/opt/espanso
 # Create the "espanso" command alias
-sudo ~/opt/Espanso.AppImage env-path register
+sudo ~/opt/espanso env-path register
+espanso service register
+espanso start
