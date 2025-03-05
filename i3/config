@@ -17,8 +17,8 @@ gaps inner 10
 gaps outer 10
 
 # Definir o tamanho da borda
-#default_border pixel 2
-for_window [class=".*"] border none
+default_border pixel 5
+for_window [class=".*"] border 2
 
 
 # Acomodação das janelas
