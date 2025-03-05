@@ -11,6 +11,8 @@
 exec_always --no-startup-id autotiling 
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id feh --bg-scale ~/.config/i3/Wallpapers/wallhaven-jxm1mw.jpg
+exec --no-startup-id vncserver :2 -geometry 1920x1080 -depth 16 -localhost no
+
 
 # gaps
 gaps inner 10
