@@ -2,6 +2,7 @@
 # It will not be overwritten, so edit it as you like.
 
 
+exec --no-startup-id dunst
 # Sway config file (Wayland)
 exec_always --no-startup-id autotiling 
 #exec --no-startup-id picom --config ~/.config/picom/picom.conf
