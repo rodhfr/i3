@@ -113,6 +113,8 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec firefox
+bindsym $mod+e exec pcmanfm
+
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking

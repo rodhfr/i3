@@ -16,9 +16,9 @@ context.modules = [
                 ]
                 actions = {
                     create-stream = {
-                        audio.rate = 12000
+                        audio.rate = 20000
                         audio.format = S16LE   # S16LE, S24_32LE, S32LE
-                        audio.channels = 1
+                        audio.channels = 2
                         audio.position = [ FL FR ]
                         #
                         snapcast.stream-name = "PipeWire"
