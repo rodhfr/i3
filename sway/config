@@ -5,9 +5,13 @@
 #exec --no-startup-id dunst
 exec_always "/home/rodhfr/.config/sway/start_waybar"
 exec_always swaync
-# Sway config file (Wayland)
 exec_always --no-startup-id autotiling 
-#exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# displays
+output HEADLESS-1 position -1600 0
+output HDMI-A-1 pos 0 0
+output eDP-1 pos 1920 0
+
 
 workspace 1 output HDMI-A-1
 workspace 2 output HDMI-A-1
@@ -19,7 +23,7 @@ workspace 6 output HDMI-A-1
 workspace 7 output HDMI-A-1
 workspace 8 output HDMI-A-1
 workspace 9 output eDP-1
-workspace 0 output HEADLESS-1
+workspace 10 output HEADLESS-1
 
 set $wall1 "~/.config/sway/Wallpapers/wallhaven-jxm1mw.jpg"
 set $wall2 "~/.config/sway/Wallpapers/landscape_pink.png"
@@ -111,6 +115,8 @@ bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec firefox
 bindsym $mod+e exec pcmanfm
 bindsym $mod+n exec swaync-client -t
+bindsym $mod+t exec macopa -Fywy
+bindsym $mod+Shift+t exec macopa -Sywy
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -146,16 +152,16 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1 ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2 ; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3 ; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4 ; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5 ; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6 ; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7 ; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8 ; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9 ; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 
 # silently move to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
