@@ -13,6 +13,8 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id feh --bg-scale ~/.config/i3/Wallpapers/wallhaven-jxm1mw.jpg
 #exec --no-startup-id vncserver :2 -geometry 1920x1080 -depth 16 -localhost no
 
+exec --no-startup-id i3lock -n -c 000000
+
 
 # gaps
 gaps inner 10
@@ -45,7 +47,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
