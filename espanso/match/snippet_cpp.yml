@@ -1,0 +1,5 @@
+matches:
+  - trigger: ":incstr"
+    replace: "#include <string>"
+  - trigger: ":endl"
+    replace: "cout << endl;"
