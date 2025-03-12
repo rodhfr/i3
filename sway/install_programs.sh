@@ -2,6 +2,7 @@
 
 # first install batch
 sudo dnf update -y
+sudo dnf upgrade -y
 sudo dnf install flatpak wayvnc azote openssl openssh-server nodejs pcmanfm ydotool yad waybar wl-clipboard kitty wget ffmpeg pavucontrol unrar lxpolkit gparted git rust cargo nodejs-npm vim firefox python3-pip rofi htop nvim fastfetch -y
 sudo dnf copr enable pgdev/ghostty -y
 sudo dnf install ghostty -y
@@ -66,3 +67,10 @@ sudo systemctl enable containerd.service
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts
 echo "Setup Login in Portainer: https://localhost:9443"
+
+# install vscode
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf check-update
+sudo dnf install code 
+
