@@ -24,6 +24,11 @@ fi
 EOL
 source ~/.profile
 
+### installing minimal needed layers for this setup to work
+# rofi is to be able to launch flatpaks from host
+# alacritty is a host enabled terminal
+# sway is the wayland compositor installed in on the host
+sudo rpm-ostree install alacritty rofi sway
 
 ###### DISTROBOX SETUP FEDORA IMAGE LATEST
 # SETUP ON HOST (not distrobox)
@@ -38,7 +43,7 @@ source ~/.profile
 ### INSIDE DISTROBOX:
 sudo dnf update -y
 sudo dnf upgrade -y
-sudo dnf install openssl nodejs pcmanfm ydotool yad waybar wl-clipboard kitty wget ffmpeg pavucontrol unrar git rust cargo nodejs-npm vim firefox python3-pip rofi htop nvim fastfetch -y
+sudo dnf install openssl swaybg nodejs pcmanfm ydotool yad waybar wl-clipboard kitty wget ffmpeg pavucontrol unrar git rust cargo nodejs-npm vim firefox python3-pip rofi htop nvim fastfetch -y
 # azote won't work on distrobox because it needs swaymsg -t display
 # it is workaroundable but i'm not implementing this now
 # just put your images in the ~./config/sway/Wallpaper folder and it will

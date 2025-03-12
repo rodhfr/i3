@@ -86,14 +86,17 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 #tiling_drag modifier titlebar
 
-# start a terminal
+# start a terminal inside distrobox container
 bindsym $mod+Return exec distrobox enter devbox -- kitty
+# launch terminal from host
+bindsym $mod+Shift+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id distrobox enter devbox -- rofi -show drun -theme dmenu
+#bindsym $mod+d exec --no-startup-id distrobox enter devbox -- rofi -show drun -theme dmenu
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme dmenu
 
 # change focus
 bindsym $mod+h focus left
@@ -115,7 +118,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
-bindsym $mod+f exec distrobox enter devbox -- firefox
+bindsym $mod+f exec flatpak run io.gitlab.librewolf-community
 bindsym $mod+e exec distrobox enter devbox -- pcmanfm
 bindsym $mod+n exec distrobox enter devbox -- swaync-client -t
 bindsym $mod+t exec distrobox enter devbox --  macopa -Fywy
