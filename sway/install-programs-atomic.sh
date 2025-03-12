@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# this is only for setup git --global username and email
+# change for your own otherwise your git commits would be signed in my name
+USER_EMAIL="souzafrodolfo@gmail.com"
+USER_NAME="Rodolfo Franca"
+
+# run commands from the host when not available container
+cat <<EOL >> ~/.profile
+command_not_found_handle() {
+  # don't run if not in a container
+  if [ ! -e /run/.containerenv ] && [ ! -e /.dockerenv ]; then
+    exit 127
+  fi
+  
+  distrobox-host-exec "\${@}"
+}
+
+if [ -n "\${ZSH_VERSION-}" ]; then
+  command_not_found_handler() {
+    command_not_found_handle "\$@"
+  }
+fi
+EOL
+source ~/.profile
+
 
 ###### DISTROBOX SETUP FEDORA IMAGE LATEST
 # SETUP ON HOST (not distrobox)
@@ -12,10 +36,13 @@
 #distrobox enter devbox
 
 ### INSIDE DISTROBOX:
-# first install batch
 sudo dnf update -y
 sudo dnf upgrade -y
-sudo dnf install azote openssl nodejs pcmanfm ydotool yad waybar wl-clipboard kitty wget ffmpeg pavucontrol unrar git rust cargo nodejs-npm vim firefox python3-pip rofi htop nvim fastfetch -y
+sudo dnf install openssl nodejs pcmanfm ydotool yad waybar wl-clipboard kitty wget ffmpeg pavucontrol unrar git rust cargo nodejs-npm vim firefox python3-pip rofi htop nvim fastfetch -y
+# azote won't work on distrobox because it needs swaymsg -t display
+# it is workaroundable but i'm not implementing this now
+# just put your images in the ~./config/sway/Wallpaper folder and it will
+# randomly change
 
 sudo dnf copr enable pgdev/ghostty -y
 sudo dnf install ghostty -y
@@ -24,6 +51,9 @@ sudo dnf install SwayNotificationCenter -y
 pip3 install autotiling
 sudo cp ~/.config/macopa/macopa ~/.local/bin
 xdg-mime default pcmanfm.desktop inode/directory
+
+git config --global user.email "$USER_EMAIL"
+git config --global user.name "$USER_NAME"
 
 # install vscode
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
