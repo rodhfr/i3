@@ -2,6 +2,7 @@
 # It will not be overwritten, so edit it as you like.
 
 
+exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
 exec_always "/home/rodhfr/.config/sway/start_waybar"
 exec_always swaync
