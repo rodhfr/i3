@@ -34,6 +34,7 @@ sudo dnf install swaybg -y
 sudo dnf install nodejs -y
 sudo dnf install pcmanfm -y
 sudo dnf install ydotool -y 
+sudo dnf install fuse-devel -y 
 sudo dnf install yad -y
 sudo dnf install waybar -y
 sudo dnf install wl-clipboard -y
