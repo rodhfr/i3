@@ -30,7 +30,7 @@ workspace 9 output eDP-1
 workspace 10 output HEADLESS-1
 
 #exec ~/.azotebg
-set $wallpapers_path ~/.config/sway/Wallpapers
+set $wallpapers_path ~/.config/Wallpapers
 output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 
 # exec --no-startup-id vncserver :2 -geometry 1920x1080 -depth 16 -localhost no
