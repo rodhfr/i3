@@ -58,6 +58,11 @@ sudo dnf install htop  -y
 sudo dnf install nvim -y
 sudo dnf install fastfetch -y
 sudo dnf install python3-pip -y
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1 # for fedora 41
+sudo dnf install steam -y
+
+
 source ~/.bashrc
 pip3 install autotiling 
 # azote won't work on distrobox because it needs swaymsg -t display
