@@ -144,3 +144,5 @@ docker network create arr
 sudo chown -R rodhfr:rodhfr ~/Docker/
 sudo chown -R rodhfr:rodhfr ~/Jellyfin\ Server\ Media/
 
+# setup xdg-desktop-portal
+# https://gist.github.com/rodhfr/181a0bee00ad5f7a608bc3e1bd021be5
