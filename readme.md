@@ -15,6 +15,6 @@ sudo systemctl enable vncserver@:1.service
 ```
 
 # Setup Snapcast
- * there is a copr repo it was the second one in google
+ * there is a [copr repo](https://copr.fedorainfracloud.org/coprs/jwillikers/snapcast) there is also a was the second one in google search
  * there is a [pipewire module](https://docs.pipewire.org/page_module_snapcast_discover.html) that does everything  
  * this repo already have user config for the pipewire module
