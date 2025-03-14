@@ -1,6 +1,7 @@
 Do no run install script blindly this is a personal install script which may not work on your computer, read before.
 
 # Setup vnc
+```
 sudo dnf install tigervnc-server
 vncpasswd
 mkdir ~/.vnc/
@@ -11,6 +12,7 @@ sudo bash -c 'echo -e "[Unit]\nDescription=remote desktop service (vnc)\nAfter=s
 
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@:1.service
+```
 
 # Setup Snapcast
  * there is a copr repo it was the second one in google
