@@ -5,6 +5,8 @@
 #export XDG_CURRENT_DESKTOP=sway # xdg-desktop-portal
 #export XDG_SESSION_DESKTOP=sway # systemd
 #export XDG_SESSION_TYPE=wayland
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
 exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
@@ -113,7 +115,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
-bindsym $mod+f exec firefox
+bindsym $mod+f exec flatpak run one.ablaze.floorp
 bindsym $mod+e exec pcmanfm
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy

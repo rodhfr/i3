@@ -29,6 +29,7 @@ sudo dnf upgrade -y
 sudo dnf install xdg-desktop-portal-wlr -y 
 sudo dnf install bat -y
 sudo dnf install azote -y
+sudo dnf install nautilus -y
 sudo dnf install openssl -y
 sudo dnf install swaybg -y
 sudo dnf install nodejs -y
@@ -69,7 +70,8 @@ sudo dnf copr enable erikreider/SwayNotificationCenter -y
 sudo dnf install SwayNotificationCenter -y
 mkdir -p ~/.local/bin/
 sudo cp ~/.config/macopa/macopa ~/.local/bin/
-xdg-mime default pcmanfm.desktop inode/directory
+xdg-mime default org.kde.dolphin.desktop inode/directory
+#xdg-mime default pcmanfm.desktop inode/directory
 
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
@@ -87,6 +89,7 @@ sudo dnf install code -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.adamcake.Bolt -y
 flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub org.kde.dolphin -y
 flatpak install flathub net.lutris.Lutris -y
 flatpak install flathub com.discordapp.Discord -y
 flatpak install flathub io.github.getnf.embellish -y
