@@ -1,32 +1,7 @@
-# Instlal apps
-sudo dnf update
-sudo dnf upgrade
-sudo dnf install tigervnc-server xclip fuse-libs fuse-overlayfs kitty feh python3-pip bat rofi flatpak -y
-pip install autotiling
+Do no run install script blindly this is a personal install script which may not work on your computer, read before.
 
-# bashrc
-echo "alias xclip='xclip -selection clipboard'" >> ~/.bashrc
-echo 'export PATH=$PATH:/var/lib/flatpak/exports/bin' >> ~/.bashrc
-source ~/.bashrc
-
-# add flathub and apps
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub it.mijorus.gearlever
-# Create the $HOME/opt destination folder
-mkdir -p ~/opt
-# Download the AppImage inside it
-wget -O ~/opt/Espanso.AppImage 'https://github.com/espanso/espanso/releases/download/v2.2.1/Espanso-X11.AppImage'
-mv ~/opt/Espanso.AppImage ~/opt/espanso
-# Make it executable
-# this wget is download another file renme to Espanso.AppImage
-# i did use gearlever also
-chmod u+x ~/opt/espanso
-# Create the "espanso" command alias
-sudo ~/opt/espanso env-path register
-espanso service register
-espanso start
-
-# setup vnc
+# Setup vnc
+sudo dnf install tigervnc-server
 vncpasswd
 mkdir ~/.vnc/
 
@@ -37,7 +12,7 @@ sudo bash -c 'echo -e "[Unit]\nDescription=remote desktop service (vnc)\nAfter=s
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@:1.service
 
-# setup snapcast
-# there is a copr repo it was the second one in google
-# there is a pipewire module that does everything
-# https://docs.pipewire.org/page_module_snapcast_discover.html
+# Setup Snapcast
+ * there is a copr repo it was the second one in google
+ * there is a [pipewire module](https://docs.pipewire.org/page_module_snapcast_discover.html) that does everything  
+ * this repo already have user config for the pipewire module
