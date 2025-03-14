@@ -28,6 +28,7 @@ sudo dnf update -y
 sudo dnf upgrade -y
 sudo dnf install xdg-desktop-portal-wlr -y 
 sudo dnf install bat -y
+sudo dnf install fuse-overlayfs -y
 sudo dnf install azote -y
 sudo dnf install nautilus -y
 sudo dnf install openssl -y
@@ -97,6 +98,7 @@ flatpak install flathub io.mpv.Mpv -y
 flatpak install flathub io.gitlab.librewolf-community -y
 flatpak install flathub one.ablaze.floorp -y
 flatpak install flathub org.nickvision.tubeconverter -y
+flatpak install flathub it.mijorus.gearlever -y
 
 # more advanced setup
 #ssh-keygen
