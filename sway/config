@@ -14,9 +14,12 @@ exec_always swaync
 exec_always --no-startup-id autotiling 
 
 # displays
-output HEADLESS-1 position -1600 0
-output HDMI-A-1 pos 0 0
-output eDP-1 pos 1920 0
+#output HEADLESS-1 position -1600 0
+#output HDMI-A-1 pos 0 0
+#output eDP-1 pos 1920 0
+# for 4k display:
+# $ swaymsg output HDMI-A-1 scale 3
+
 
 
 workspace 1 output HDMI-A-1
@@ -79,6 +82,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+#bindsym $mod+m output "HDMI-A-1" enable ; output "eDP-1" toggle
+bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" scale 1
+#; output "eDP-1" toggle
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

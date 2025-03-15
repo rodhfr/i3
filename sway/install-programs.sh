@@ -61,6 +61,8 @@ sudo dnf install python3-pip -y
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1 # for fedora 41
 sudo dnf install steam -y
+# more info about steam install in fedora 41
+# https://docs.fedoraproject.org/en-US/gaming/proton/
 
 
 source ~/.bashrc
@@ -104,7 +106,6 @@ flatpak install flathub io.gitlab.librewolf-community -y
 flatpak install flathub one.ablaze.floorp -y
 flatpak install flathub org.nickvision.tubeconverter -y
 flatpak install flathub it.mijorus.gearlever -y
-
 # more advanced setup
 #ssh-keygen
 #sudo systemctl start sshd
