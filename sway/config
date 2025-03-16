@@ -6,6 +6,10 @@
 #export XDG_SESSION_DESKTOP=sway # systemd
 #export XDG_SESSION_TYPE=wayland
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec create_output
+exec swaymsg output "HEADLESS-1" resolution 1600x900
+exec /home/rodhfr/Code/createmonitor.sh
+
 
 exec sunshine
 exec /usr/bin/lxpolkit
@@ -93,7 +97,7 @@ bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "
 bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
 
 # modo sunshine (physical disabled)
-bindsym $mod+o output "HDMI-A-1" disable ; output "eDP-1" disable ; exec --no-startup-id nwg-panel
+bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id nwg-panel
 # $ swaymsg output "HEADLESS-1" resolution 1600x720
 
 
