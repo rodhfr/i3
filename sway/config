@@ -9,8 +9,9 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
-exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
-exec_always swaync
+#exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
+exec_always --no-startup-id nwg-panel
+exec_always --no-startup-id swaync
 exec_always --no-startup-id autotiling 
 
 # displays
@@ -83,8 +84,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #bindsym $mod+m output "HDMI-A-1" enable ; output "eDP-1" toggle
-bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" scale 1
+bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id nwg-panel
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
 #; output "eDP-1" toggle
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
