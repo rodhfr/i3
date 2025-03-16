@@ -7,6 +7,7 @@
 #export XDG_SESSION_TYPE=wayland
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+exec sunshine
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
 #exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
@@ -84,10 +85,18 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #bindsym $mod+m output "HDMI-A-1" enable ; output "eDP-1" toggle
+# modo sala de tv:
 bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id nwg-panel
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
-bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
-#; output "eDP-1" toggle
+# modo desktop (HDMI-A-1 on ; eDP-1 off)
+bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+# modo desktop (eDP-1 on ; HDMI-A-1 on)
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+
+# modo sunshine (physical disabled)
+bindsym $mod+o output "HDMI-A-1" disable ; output "eDP-1" disable ; exec --no-startup-id nwg-panel
+# $ swaymsg output "HEADLESS-1" resolution 1600x720
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -216,6 +225,7 @@ mode "resize" {
 bar {
     position top
     status_command i3status
-    mode hide
+    # mode hide # reactivate with super key
+    mode invisible
 }
 
