@@ -69,7 +69,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 #bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec xfce4-terminal
+bindsym $mod+Shift+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 
 # kill focused window
@@ -118,6 +119,7 @@ bindsym $mod+v split v
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec firefox
 bindsym $mod+e exec pcmanfm
+bindsym $mod+Shift+p scrot -s '/data/data/com.termux/files/home/Screenshots/%Y-%m-%d_%H-%M-%S.png'
 
 
 # change container layout (stacked, tabbed, toggle split)
