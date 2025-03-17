@@ -119,7 +119,7 @@ bindsym $mod+v split v
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec firefox
 bindsym $mod+e exec pcmanfm
-bindsym --release $mod+Shift+p exec "scrot -s"
+bindsym --release $mod+Shift+p exec "scrot -s -F /data/data/com.termux/files/home/Screenshots/%Y-%m-%d_%wx%h.png"
 
 
 # change container layout (stacked, tabbed, toggle split)
