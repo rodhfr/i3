@@ -3,8 +3,5 @@ hwdec=auto
 save-position-on-quit=yes
 slang=en
 alang=jp
-demuxer-max-bytes=*KiB
-demuxer-max-back-bytes=*KiB
 cache=yes
-demuxer-hysteresis-secs=0
-demuxer-thread=yes
+ytdl-format=bestvideo[height<=?720]+bestaudio/best
