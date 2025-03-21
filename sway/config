@@ -95,6 +95,8 @@ bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-st
 bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
 # modo desktop (eDP-1 on ; HDMI-A-1 on)
 bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+# only laptop
+bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id nwg-panel
 
 # modo sunshine (physical disabled)
 bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id nwg-panel
@@ -142,6 +144,7 @@ bindsym $mod+e exec pcmanfm
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
+bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
