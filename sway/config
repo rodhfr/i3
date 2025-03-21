@@ -145,6 +145,7 @@ bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
