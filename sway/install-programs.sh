@@ -104,6 +104,7 @@ sudo dnf install code -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.adamcake.Bolt -y
 flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub io.github.plrigaux.sysd-manager -y
 flatpak install flathub org.kde.dolphin -y
 flatpak install flathub net.lutris.Lutris -y
 flatpak install flathub com.discordapp.Discord -y
