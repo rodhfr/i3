@@ -7,15 +7,17 @@
 #export XDG_SESSION_TYPE=wayland
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 #exec create_output
-exec swaymsg output "HEADLESS-1" resolution 1600x900
-exec /home/rodhfr/Code/createmonitor.sh
+#exec swaymsg output "HEADLESS-1" resolution 1600x900 # dont work anyways
+#exec /home/rodhfr/Code/createmonitor.sh 
+exec input-remapper-gtk 
 
 
+exec waybar
 exec sunshine
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
 #exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
-exec_always --no-startup-id nwg-panel
+#exec_always --no-startup-id nwg-panel
 exec_always --no-startup-id swaync
 exec_always --no-startup-id autotiling 
 
@@ -88,19 +90,31 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-#bindsym $mod+m output "HDMI-A-1" enable ; output "eDP-1" toggle
+# #bindsym $mod+m output "HDMI-A-1" enable ; output "eDP-1" toggle
+# # modo sala de tv:
+# bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id nwg-panel
+# # modo desktop (HDMI-A-1 on ; eDP-1 off)
+# bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+# # modo desktop (eDP-1 on ; HDMI-A-1 on)
+# bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+# # only laptop
+# bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id nwg-panel
+#
+# # modo sunshine (physical disabled)
+# bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id nwg-panel
+# # $ swaymsg output "HEADLESS-1" resolution 1600x720
+
 # modo sala de tv:
-bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id nwg-panel
+bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # modo desktop (HDMI-A-1 on ; eDP-1 off)
-bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # modo desktop (eDP-1 on ; HDMI-A-1 on)
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id nwg-panel
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # only laptop
-bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id nwg-panel
+bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 # modo sunshine (physical disabled)
-bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id nwg-panel
-# $ swaymsg output "HEADLESS-1" resolution 1600x720
+bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -146,6 +160,7 @@ bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Shift+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
