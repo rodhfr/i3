@@ -161,6 +161,8 @@ bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+bindsym $mod+Ctrl+f floating toggle
+
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
