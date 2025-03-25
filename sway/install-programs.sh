@@ -28,6 +28,7 @@ sudo dnf update -y
 sudo dnf upgrade -y
 sudo dnf install xdg-desktop-portal-wlr -y 
 sudo dnf install input-remapper -y
+sudo dnf install gedit -y
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
 sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 sudo dnf install intel-media-driver -y
