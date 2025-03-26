@@ -116,6 +116,9 @@ bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "
 # modo sunshine (physical disabled)
 bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x900 ; output "HEADLESS-1" scale 1.5 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -160,7 +163,7 @@ bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+Shift+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+bindsym $mod+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 bindsym $mod+Ctrl+f floating toggle
 
 
