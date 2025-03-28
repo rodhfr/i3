@@ -28,6 +28,8 @@ sudo dnf update -y
 sudo dnf upgrade -y
 sudo dnf install xdg-desktop-portal-wlr -y 
 sudo dnf install input-remapper -y
+sudo dnf copr enable alternateved/keyd -y
+sudo dnf install keyd -y
 sudo dnf install gedit -y
 sudo dnf install ncurses-devel -y
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
