@@ -9,7 +9,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #exec create_output
 #exec swaymsg output "HEADLESS-1" resolution 1600x900 # dont work anyways
 #exec /home/rodhfr/Code/createmonitor.sh 
-exec input-remapper-gtk 
+#exec input-remapper-gtk 
 
 
 exec waybar
@@ -135,6 +135,10 @@ bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme dmenu
+
+# cycle containers
+#bindsym $mod+Tab focus next
+#bindsym $mod+Shift+Tab focus prev
 
 # change focus
 bindsym $mod+h focus left
