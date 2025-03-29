@@ -59,13 +59,16 @@ for_window [class=".*"] border 2
 # Acomodação das janelas
 smart_gaps on
 
+
 set $mod Mod1
 
 # input config
-input type:keyboard {
-    xkb_layout us,br
-    xkb_options grp:rctrl_toggle
-}
+#input type:keyboard {
+#    xkb_layout us,br
+#    xkb_options grp:rctrl_toggle
+#}
+input * xkb_options "compose:menu"
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -114,7 +117,7 @@ bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "
 bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 # modo sunshine (physical disabled)
-bindsym $mod+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x720 ; output "HEADLESS-1" scale 1.2 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+Shift+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x720 ; output "HEADLESS-1" scale 1.2 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -134,17 +137,22 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme dmenu
+bindsym $mod+x exec --no-startup-id rofi -show drun -theme dmenu
 
 # cycle containers
 #bindsym $mod+Tab focus next
 #bindsym $mod+Shift+Tab focus prev
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# bindsym $mod+h focus left
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
+# bindsym $mod+l focus right
+bindsym $mod+a focus left
+bindsym $mod+w focus up 
+bindsym $mod+d focus right
+bindsym $mod+s focus down
+
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -153,15 +161,16 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+b split h 
+#bindsym $mod+b split h 
 
 # split in vertical orientation
 bindsym $mod+v split v
+bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec flatpak run one.ablaze.floorp
-bindsym $mod+e exec pcmanfm
+bindsym $mod+Ctrl+e exec nautilus
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
@@ -178,7 +187,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
