@@ -12,8 +12,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #exec input-remapper-gtk 
 
 
-exec waybar
-exec sunshine
+#exec waybar
+#exec sunshine
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
 #exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
@@ -108,16 +108,21 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # # $ swaymsg output "HEADLESS-1" resolution 1600x720
 
 # modo sala de tv:
-bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 
+#; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # modo desktop (HDMI-A-1 on ; eDP-1 off)
-bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+#; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # modo desktop (eDP-1 on ; HDMI-A-1 on)
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+#; exec --no-startup-id pkill waybar && sleep 1 && waybar
 # only laptop
-bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+Ctrl+s output "eDP-1" enable ; output "HDMI-A-1" disable ; output "HEADLESS-1" disable 
+#; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 # modo sunshine (physical disabled)
-bindsym $mod+Shift+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x720 ; output "HEADLESS-1" scale 1.2 ; exec --no-startup-id pkill waybar && sleep 1 && waybar
+bindsym $mod+Shift+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; output "HDMI-A-1" disable ; output "eDP-1" disable ; output "HEADLESS-1" resolution 1600x720 ; output "HEADLESS-1" scale 1.2 
+#; exec --no-startup-id pkill waybar && sleep 1 && waybar
 
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -170,7 +175,7 @@ bindsym $mod+Shift+v split h
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f exec flatpak run one.ablaze.floorp
-bindsym $mod+Ctrl+e exec nautilus
+bindsym $mod+e exec nautilus
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
@@ -277,11 +282,21 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# Start swaybar (or use your own bar config here)
-bar {
-    position top
-    status_command i3status
-    # mode hide # reactivate with super key
-    mode invisible
-}
+# # Start swaybar (or use your own bar config here)
+# bar {
+#     swaybar_command waybar
+#     position top
+#     waybar
+#     mode hide     
+#     ##toggle with super key
+#     modifier Mod4
+#     #mode invisible
+#
+# }
 
+bar {
+    swaybar_command waybar
+    position top
+    mode hide
+    modifier Mod4
+}
