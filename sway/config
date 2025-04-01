@@ -56,6 +56,11 @@ gaps outer 10
 default_border pixel 5
 for_window [class=".*"] border 2
 
+# windows rules
+assign [class="BoltLauncher"] workspace 1
+assign [class="net-runelite-client-RuneLite"] workspace 1
+assign [app_id="one.ablaze.floorp"] workspace 2
+
 # Acomodação das janelas
 smart_gaps on
 
@@ -297,6 +302,6 @@ mode "resize" {
 bar {
     swaybar_command waybar
     position top
-    mode hide
+    mode dock
     modifier Mod4
 }
