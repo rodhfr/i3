@@ -12,11 +12,11 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #exec input-remapper-gtk 
 
 
-#exec waybar
+exec waybar
 #exec sunshine
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
-#exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
+exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
 #exec_always --no-startup-id nwg-panel
 exec_always --no-startup-id swaync
 exec_always --no-startup-id autotiling 
@@ -60,6 +60,9 @@ for_window [class=".*"] border 2
 assign [class="BoltLauncher"] workspace 1
 assign [class="net-runelite-client-RuneLite"] workspace 1
 assign [app_id="one.ablaze.floorp"] workspace 2
+for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
+
+
 
 # Acomodação das janelas
 smart_gaps on
@@ -186,8 +189,9 @@ bindsym $mod+t exec macopa -Fywy
 bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+#bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 bindsym $mod+Ctrl+f floating toggle
+bindsym $mod+Ctrl+p sticky toggle, floating toggle, resize set width 400px height 225px, move position 1500 10
 
 
 # toggle tiling / floating
@@ -300,8 +304,8 @@ mode "resize" {
 # }
 
 bar {
-    swaybar_command waybar
+    #swaybar_command waybar
     position top
-    mode dock
+    mode hide
     modifier Mod4
 }
