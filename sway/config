@@ -12,11 +12,14 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #exec input-remapper-gtk 
 
 
+
+
+exec gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 exec waybar
 #exec sunshine
 exec /usr/bin/lxpolkit
 #exec --no-startup-id dunst
-exec_always "/home/rodhfr/.config/sway/start_waybar.workstation"
+exec_always "~/.config/sway/start_waybar.workstation"
 #exec_always --no-startup-id nwg-panel
 exec_always --no-startup-id swaync
 exec_always --no-startup-id autotiling 
@@ -60,6 +63,7 @@ for_window [class=".*"] border 2
 assign [class="BoltLauncher"] workspace 1
 assign [class="net-runelite-client-RuneLite"] workspace 1
 assign [app_id="one.ablaze.floorp"] workspace 2
+assign [app_id="org.gnome.Nautilus"] workspace 4
 for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 
 
@@ -306,6 +310,6 @@ mode "resize" {
 bar {
     #swaybar_command waybar
     position top
-    mode hide
-    modifier Mod4
+    mode invisible 
+    #modifier Mod4
 }
