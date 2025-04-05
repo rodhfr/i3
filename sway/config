@@ -187,8 +187,7 @@ bindsym $mod+Shift+v split h
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f workspace 2 ; exec flatpak run one.ablaze.floorp 
-#bindsym $mod+Ctrl+f exec flatpak run one.ablaze.floorp && sleep 0.5 && swaymsg floating enable && swaymsg resize set width 1000px height 1000px
-bindsym $mod+Ctrl+f exec /home/rodhfr/.config/sway/floatingfox;
+bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 bindsym $mod+e exec nautilus
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
