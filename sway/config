@@ -62,8 +62,8 @@ for_window [class=".*"] border 2
 # windows rules
 assign [class="BoltLauncher"] workspace 1
 assign [class="net-runelite-client-RuneLite"] workspace 1
-assign [app_id="one.ablaze.floorp"] workspace 2
-assign [app_id="org.gnome.Nautilus"] workspace 4
+#assign [app_id="one.ablaze.floorp"] workspace 2
+#assign [app_id="org.gnome.Nautilus"] workspace 4
 for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 
 
@@ -186,7 +186,9 @@ bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
-bindsym $mod+f exec flatpak run one.ablaze.floorp
+bindsym $mod+f workspace 2 ; exec flatpak run one.ablaze.floorp 
+#bindsym $mod+Ctrl+f exec flatpak run one.ablaze.floorp && sleep 0.5 && swaymsg floating enable && swaymsg resize set width 1000px height 1000px
+bindsym $mod+Ctrl+f exec /home/rodhfr/.config/sway/floatingfox;
 bindsym $mod+e exec nautilus
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
@@ -194,8 +196,10 @@ bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 #bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
-bindsym $mod+Ctrl+f floating toggle
-bindsym $mod+Ctrl+p sticky toggle, floating toggle, resize set width 400px height 225px, move position 1500 10
+bindsym $mod+k floating toggle
+bindsym $mod+Ctrl+p sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
+bindsym $mod+Ctrl+r sticky enable, floating enable, resize set width 400px height 225px, move position 10 180
+#bindsym $mod+Ctrl+r sticky toggle, floating toggle, resize set width 350px height 225px, move position 10 180
 
 
 # toggle tiling / floating
@@ -203,7 +207,7 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
+#
 # focus the parent container
 #bindsym $mod+a focus parent
 
