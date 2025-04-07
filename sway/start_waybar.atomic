@@ -1,5 +1,0 @@
-#!/bin/bash
-
-distrobox enter devbox -- "pkill waybar"
-sleep 1
-distrobox enter devbox -- "waybar"

@@ -36,6 +36,7 @@ sudo dnf install ncurses-devel -y
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
 sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 sudo dnf install intel-media-driver -y
+sudo dnf install gnome-software -y
 # more about this change ffmpeg
 # https://rpmfusion.org/Howto/Multimedia
 sudo dnf install bat -y

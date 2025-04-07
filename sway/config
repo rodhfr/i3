@@ -72,7 +72,16 @@ for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px
 smart_gaps on
 
 
-set $mod Mod1
+set $mod mod1
+set $term ghostty
+# set $term_id term
+#set $t_pos floating enable, border none, move position center, resize set width 100 ppt height 100 ppt
+
+#for_window [app_id="com.mitchellh.ghostty"] move scratchpad
+# bindsym --to-code F1 exec ...
+bindsym $mod+Ctrl+g exec swaymsg [app_id=ghostty] scratchpad show || swaymsg move [app_id=ghostty] to scratchpad
+exec $term
+
 
 # input config
 #input type:keyboard {
@@ -188,6 +197,7 @@ bindsym $mod+Shift+v split h
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f workspace 2 ; exec flatpak run one.ablaze.floorp 
 bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
+bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
 bindsym $mod+e exec nautilus
 bindsym $mod+n exec swaync-client -t
 bindsym $mod+t exec macopa -Fywy
