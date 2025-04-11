@@ -208,6 +208,7 @@ bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+k floating toggle
 bindsym $mod+Ctrl+p sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 bindsym $mod+Ctrl+r sticky enable, floating enable, resize set width 400px height 225px, move position 10 180
+bindsym $mod+Ctrl+i sticky enable, floating enable, resize set width 400px height 225px, move position 300 10
 #bindsym $mod+Ctrl+r sticky toggle, floating toggle, resize set width 350px height 225px, move position 10 180
 
 

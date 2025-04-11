@@ -30,6 +30,7 @@ sudo dnf install xdg-desktop-portal-wlr -y
 sudo dnf install input-remapper -y
 sudo dnf copr enable alternateved/keyd -y
 sudo dnf install keyd -y
+sudo dnf install golang -y
 sudo dnf install texlive-scheme-basic -y
 sudo dnf install gedit -y
 sudo dnf install ncurses-devel -y
