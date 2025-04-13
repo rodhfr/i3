@@ -195,7 +195,7 @@ bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
-bindsym $mod+f workspace 2 ; exec flatpak run one.ablaze.floorp 
+bindsym $mod+f exec flatpak run one.ablaze.floorp 
 bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
 bindsym $mod+e exec nautilus
@@ -205,7 +205,7 @@ bindsym $mod+Shift+t exec macopa -Sywy
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 #bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
-bindsym $mod+k floating toggle
+bindsym $mod+k floating toggle, sticky disable
 bindsym $mod+Ctrl+p sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 bindsym $mod+Ctrl+r sticky enable, floating enable, resize set width 400px height 225px, move position 10 180
 bindsym $mod+Ctrl+i sticky enable, floating enable, resize set width 400px height 225px, move position 300 10
