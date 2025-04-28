@@ -28,7 +28,7 @@ exec_always --no-startup-id autotiling
 
 # displays
 #output HEADLESS-1 position -1600 0
-#output HDMI-A-1 pos 0 0
+output HDMI-A-1 pos 0 0
 output eDP-1 pos 1920 0
 # for 4k display:
 # $ swaymsg output HDMI-A-1 scale 3
@@ -81,8 +81,8 @@ set $term ghostty
 
 #for_window [app_id="com.mitchellh.ghostty"] move scratchpad
 # bindsym --to-code F1 exec ...
-bindsym $mod+Ctrl+g exec swaymsg [app_id=ghostty] scratchpad show || swaymsg move [app_id=ghostty] to scratchpad
-exec $term
+#bindsym $mod+Ctrl+g exec swaymsg [app_id=ghostty] scratchpad show || swaymsg move [app_id=ghostty] to scratchpad
+#exec $term
 
 
 # input config
@@ -153,6 +153,9 @@ bindsym $mod+Shift+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; 
 
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym $mod+g exec brightnessctl set 1
+bindsym $mod+Shift+g exec dim -d 0 -p
+bindsym $mod+Ctrl+g exec pkill dim
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
