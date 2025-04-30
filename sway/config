@@ -25,10 +25,11 @@ exec_always "~/.config/sway/start_waybar.workstation"
 #exec_always --no-startup-id nwg-panel
 exec_always --no-startup-id swaync
 exec_always --no-startup-id autotiling 
+exec mpv-remote-app linux123
 
 # displays
 #output HEADLESS-1 position -1600 0
-output HDMI-A-1 pos 0 0
+output HDMI-A-1 pos 0 0 resolution 1920x1080@74.973Hz
 output eDP-1 pos 1920 0
 # for 4k display:
 # $ swaymsg output HDMI-A-1 scale 3
@@ -66,7 +67,7 @@ assign [class="BoltLauncher"] workspace 1
 assign [class="net-runelite-client-RuneLite"] workspace 1
 #assign [app_id="one.ablaze.floorp"] workspace 2
 #assign [app_id="org.gnome.Nautilus"] workspace 4
-for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
+#for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 
 
 
@@ -153,9 +154,9 @@ bindsym $mod+Shift+s exec --no-startup-id sh ~/.config/sway/check_headless.sh ; 
 
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-bindsym $mod+g exec brightnessctl set 1
-bindsym $mod+Shift+g exec dim -d 0 -p
-bindsym $mod+Ctrl+g exec pkill dim
+bindsym $mod+g exec brightnessctl set 1 && pkill dim
+bindsym $mod+Shift+g exec dim -d 0 -p -a 0.4
+bindsym $mod+Ctrl+g exec pkill dim  
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
