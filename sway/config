@@ -100,6 +100,11 @@ input "1267:12447:ELAN1200:00_04F3:309F_Touchpad" {
     tap enabled
 }
 
+input "9610:42:SINO_WEALTH_Gaming_KB__Mouse" {
+    accel_profile "flat"
+    pointer_accel 1
+}
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -208,7 +213,8 @@ bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
-bindsym $mod+f exec flatpak run one.ablaze.floorp 
+#bindsym $mod+f exec flatpak run one.ablaze.floorp 
+bindsym $mod+f exec firefox
 bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
 bindsym $mod+e exec nautilus
