@@ -4,9 +4,9 @@
 }
 
 window#waybar {
-    background-color: #000000;
-    border-bottom: 3px solid #111111;
-    color: #ffffff;
+    background-color: #1e2836;
+    border-bottom: 3px solid #3a4a5a;
+    color: #c0c9d1;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -16,11 +16,11 @@ window#waybar.hidden {
 }
 
 window#waybar.termite {
-    background-color: #000000;
+    background-color: #2a3a4a;
 }
 
 window#waybar.chromium {
-    background-color: #000000;
+    background-color: #161d26;
     border: none;
 }
 
@@ -32,17 +32,17 @@ button {
 
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #c0c9d1;
 }
 
 #pulseaudio:hover {
-    background-color: #111111;
+    background-color: #4a5a6a;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #c0c9d1;
 }
 
 #workspaces button:hover {
@@ -50,8 +50,8 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #111111;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #3a4a5a;
+    box-shadow: inset 0 -3px #c0c9d1;
 }
 
 #workspaces button.urgent {
@@ -59,8 +59,8 @@ button:hover {
 }
 
 #mode {
-    background-color: #111111;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #3a4a5a;
+    box-shadow: inset 0 -3px #c0c9d1;
 }
 
 #clock,
@@ -81,23 +81,33 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #c0c9d1;
 }
 
 #clock {
-    background-color: #111111;
+    background-color: #3a4a5a;
 }
 
 #battery {
-    background-color: #000000;
+    background-color: #2a3a4a;
+    color: #c0c9d1;
 }
 
 #battery.charging, #battery.plugged {
-    background-color: #222222;
+    color: #c0c9d1;
+    background-color: #4a7d9d;
+}
+
+@keyframes blink {
+    to {
+        background-color: #8b2f3b;
+        color: #c0c9d1;
+    }
 }
 
 #battery.critical:not(.charging) {
     background-color: #8b2f3b;
+    color: #c0c9d1;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -106,24 +116,24 @@ button:hover {
 }
 
 #cpu {
-    background-color: #222222;
-    color: #ffffff;
+    background-color: #4a7d9d;
+    color: #1e2836;
 }
 
 #memory {
-    background-color: #111111;
+    background-color: #3a4a5a;
 }
 
 #disk {
-    background-color: #111111;
+    background-color: #2e3e4e;
 }
 
 #backlight {
-    background-color: #111111;
+    background-color: #506070;
 }
 
 #network {
-    background-color: #111111;
+    background-color: #4a5a6a;
 }
 
 #network.disconnected {
@@ -131,17 +141,17 @@ button:hover {
 }
 
 #pulseaudio {
-    background-color: #111111;
-    color: #ffffff;
+    background-color: #5a8cb5;
+    color: #1e2836;
 }
 
 #pulseaudio.muted {
-    background-color: #111111;
-    color: #666666;
+    background-color: #2e3e4e;
+    color: #2a5c45;
 }
 
 #temperature {
-    background-color: #111111;
+    background-color: #5a7d9d;
 }
 
 #temperature.critical {
@@ -149,21 +159,21 @@ button:hover {
 }
 
 #tray {
-    background-color: #111111;
+    background-color: #2e3e4e;
 }
 
 #idle_inhibitor {
-    background-color: #000000;
+    background-color: #1e2836;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #c0c9d1;
+    color: #1e2836;
 }
 
 #mpd {
-    background-color: #222222;
-    color: #ffffff;
+    background-color: #4a7d9d;
+    color: #1e2836;
 }
 
 #mpd.disconnected {
@@ -171,24 +181,24 @@ button:hover {
 }
 
 #mpd.stopped {
-    background-color: #111111;
+    background-color: #2e3e4e;
 }
 
 #mpd.paused {
-    background-color: #222222;
+    background-color: #4a7d9d;
 }
 
 #language {
-    background: #111111;
-    color: #ffffff;
+    background: #3a4a5a;
+    color: #c0c9d1;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
 }
 
 #keyboard-state {
-    background: #111111;
-    color: #ffffff;
+    background: #2e3e4e;
+    color: #c0c9d1;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
@@ -212,25 +222,18 @@ button:hover {
 
 #privacy-item {
     padding: 0 5px;
-    color: #ffffff;
+    color: #c0c9d1;
 }
 
 #privacy-item.screenshare {
-    background-color: #222222;
+    background-color: #5a7d9d;
 }
 
 #privacy-item.audio-in {
-    background-color: #222222;
+    background-color: #4a7d9d;
 }
 
 #privacy-item.audio-out {
-    background-color: #111111;
-}
-
-@keyframes blink {
-    to {
-        background-color: #8b2f3b;
-        color: #ffffff;
-    }
+    background-color: #3a4a5a;
 }
 
