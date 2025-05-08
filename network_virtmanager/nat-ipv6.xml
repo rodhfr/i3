@@ -1,0 +1,20 @@
+<network>
+  <name>nat-ipv6</name>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='virbr2' stp='on' delay='0'/>
+  <ip address='192.168.100.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.100.2' end='192.168.100.254'/>
+    </dhcp>
+  </ip>
+  <!-- IPv6 Configuration -->
+  <ip family='ipv6' address='fd00::1' prefix='64'>
+    <dhcp>
+      <range start='fd00::100' end='fd00::1ff'/>
+    </dhcp>
+  </ip>
+</network>
