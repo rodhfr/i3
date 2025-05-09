@@ -49,7 +49,7 @@ exec_always autotiling
 
 
 ############################### Display Output #########################################
-output HDMI-A-1 pos 0 0 resolution 1920x1080@60Hz
+output HDMI-A-1 pos 0 0 resolution 1920x1080@74.973Hz
 output eDP-1 pos 1920 0
 
 output HEADLESS-1 resolution 1920x1080@30Hz position 3840 0
@@ -264,6 +264,7 @@ bindsym $mod+x exec --no-startup-id rofi -show drun -theme dmenu
 # Launch Terminal
 bindsym $mod+Return exec kitty
 # Launch Browser
+#bindsym $mod+f exec flatpak run com.brave.Browser
 bindsym $mod+f exec firefox
 # Launch Volume Management
 bindsym $mod+v exec pavucontrol
