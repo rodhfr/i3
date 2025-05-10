@@ -262,7 +262,7 @@ mode "resize" {
 # Launch Menu Launcher
 bindsym $mod+x exec --no-startup-id rofi -show drun -theme dmenu
 # Launch Terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec ghostty
 # Launch Browser
 #bindsym $mod+f exec flatpak run com.brave.Browser
 bindsym $mod+f exec firefox
