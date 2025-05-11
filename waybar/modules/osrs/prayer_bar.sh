@@ -15,7 +15,8 @@ MAX=$(echo "$DATA" | jq '.prayerpoints_history[-1].max_prayer')
 
 # Verifica se os valores são válidos
 if [[ -z "$PRAYER" || -z "$MAX" || "$MAX" -eq 0 ]]; then
-    echo -e "<span color='gray'>✦ N/A</span>"
+    #echo -e "<span color='gray'>✦ -</span>"
+    echo -e ""
     exit 0
 fi
 

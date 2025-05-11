@@ -17,9 +17,10 @@
     ],
     "modules-right": [
         //"idle_inhibitor",
+        "custom/bluetooth_battery",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
+        //"power-profiles-daemon",
         //"cpu",
         //"memory",
         //"temperature",
@@ -209,15 +210,21 @@
 		}
     },
     "custom/hp_bar": {
-    "exec": "~/.config/waybar/scripts/hp_bar.sh",
+    "exec": "~/.config/waybar/modules/osrs/hp_bar.sh",
     "interval": 2,
     "format": "{}",
     "escape": false   // Permite HTML (p/ colorir)
     },
     "custom/prayer_bar": {
-    "exec": "~/.config/waybar/scripts/prayer_bar.sh",
+    "exec": "~/.config/waybar/modules/osrs/prayer_bar.sh",
     "interval": 2,
     "format": "{}",
     "escape": false   // Permite HTML (p/ colorir)
+    },
+    "custom/bluetooth_battery": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/modules/bluetooth-battery.sh"
     }
 }
