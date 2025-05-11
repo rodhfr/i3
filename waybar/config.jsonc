@@ -226,7 +226,8 @@
     "format": "{}",
     "return-type": "json",
     "interval": 60,
-    "exec": "~/.config/waybar/modules/bluetooth-battery.sh"
+    "exec": "~/.config/waybar/modules/bluetooth-battery.sh",
+    "on-click": "blueman-manager"
     },
     "custom/inventory": {
     "exec": "~/.config/waybar/modules/osrs/inventory.sh",
