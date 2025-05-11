@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pegando os dados da API
-DATA=$(curl -s http://127.0.0.1:5000/get_stats)
+DATA=$(curl http://127.0.0.1:8080/stats | jq '.[] | select(.stat == "Hitpoints")')
 
 # Verifica se o JSON é válido
 if ! echo "$DATA" | jq empty >/dev/null 2>&1; then
@@ -9,16 +9,12 @@ if ! echo "$DATA" | jq empty >/dev/null 2>&1; then
     exit 0
 fi
 
-# Pega o último item do array
-LAST=$(echo "$DATA" | jq '.hitpoints_history[-1]')
 
-# Extrai os valores
-HP=$(echo "$LAST" | jq '.current_life // empty')
-MAX=$(echo "$LAST" | jq '.max_life // empty')
+HP=$(echo "$DATA" | jq '.boostedLevel // empty')
+MAX=$(echo "$DATA" | jq '.level // empty')
 
 # Verifica se os valores são válidos
 if [[ -z "$HP" || -z "$MAX" || "$MAX" -eq 0 ]]; then
-    #echo -e "<span color='gray'>❤️ -</span>"
     echo -e ""
     exit 0
 fi
@@ -27,7 +23,7 @@ fi
 PERCENT=$(echo "scale=2; $HP / $MAX" | bc)
 
 # Gera barra
-BLOCKS=19
+BLOCKS=15
 FILLED=$(printf "%.0f" "$(echo "$PERCENT * $BLOCKS" | bc)")
 EMPTY=$((BLOCKS - FILLED))
 BAR=$(printf "%0.s█" $(seq 1 $FILLED))

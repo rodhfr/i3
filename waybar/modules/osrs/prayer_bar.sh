@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pegando os dados da API
-DATA=$(curl -s http://127.0.0.1:5000/get_stats)
+DATA=$(curl http://127.0.0.1:8080/stats | jq '.[] | select(.stat == "Prayer")')
 
 # Verifica se o JSON é válido
 if ! echo "$DATA" | jq empty >/dev/null 2>&1; then
@@ -10,8 +10,8 @@ if ! echo "$DATA" | jq empty >/dev/null 2>&1; then
 fi
 
 # Pega o último item do array
-PRAYER=$(echo "$DATA" | jq '.prayerpoints_history[-1].current_prayer')
-MAX=$(echo "$DATA" | jq '.prayerpoints_history[-1].max_prayer')
+PRAYER=$(echo "$DATA" | jq '.boostedLevel')
+MAX=$(echo "$DATA" | jq '.level')
 
 # Verifica se os valores são válidos
 if [[ -z "$PRAYER" || -z "$MAX" || "$MAX" -eq 0 ]]; then
@@ -24,7 +24,7 @@ fi
 PERCENT=$(echo "scale=2; $PRAYER / $MAX" | bc)
 
 # Gera barra
-BLOCKS=19
+BLOCKS=15
 FILLED=$(printf "%.0f" "$(echo "$PERCENT * $BLOCKS" | bc)")
 EMPTY=$((BLOCKS - FILLED))
 BAR=$(printf "%0.s█" $(seq 1 $FILLED))

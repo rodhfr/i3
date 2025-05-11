@@ -11,7 +11,8 @@
         "sway/mode",
         "sway/scratchpad",
         "custom/hp_bar",
-        "custom/prayer_bar"
+        "custom/prayer_bar",
+        "custom/inventory"
     ],
     "modules-center": [
     ],
@@ -211,13 +212,13 @@
     },
     "custom/hp_bar": {
     "exec": "~/.config/waybar/modules/osrs/hp_bar.sh",
-    "interval": 2,
+    "interval": 1,
     "format": "{}",
     "escape": false   // Permite HTML (p/ colorir)
     },
     "custom/prayer_bar": {
     "exec": "~/.config/waybar/modules/osrs/prayer_bar.sh",
-    "interval": 2,
+    "interval": 1,
     "format": "{}",
     "escape": false   // Permite HTML (p/ colorir)
     },
@@ -226,5 +227,11 @@
     "return-type": "json",
     "interval": 60,
     "exec": "~/.config/waybar/modules/bluetooth-battery.sh"
+    },
+    "custom/inventory": {
+    "exec": "~/.config/waybar/modules/osrs/inventory.sh",
+    "interval": 1,
+    "format": "{}",
+    "return-type": "json"
     }
 }
