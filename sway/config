@@ -240,7 +240,8 @@ mode "resize" {
 }
 ## Experimental:
 # enable mirror
-bindsym $mod+h exec nohup wl-mirror eDP-1 ; workspace $ws9
+bindsym $mod+Shift+h workspace $ws8 ; exec wl-mirror eDP-1 ; workspace $ws9 
+bindsym $mod+h workspace 8 ; workspace 9
 bindsym $mod+Ctrl+h exec pkill wl-mirror ; workspace back_and_forth
 bindsym $mod+Tab workspace back_and_forth
 
