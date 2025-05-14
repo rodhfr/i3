@@ -9,6 +9,8 @@ set $mod mod1
 
 ## Drag Window Modifier
 floating_modifier $mod
+# This is for back and forth workspaces
+workspace_auto_back_and_forth yes
 ########################################################################################
 
 
@@ -142,8 +144,6 @@ bindsym $mod+Ctrl+g exec pkill dim
 bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
 # eDP-1 on ; HDMI-A-1 on
 bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
-# enable mirror
-bindsym $mod+m exec nohup wl-mirror eDP-1 &
 
 ## Experimental:
 # eDP-1 on ; HDMI-A-1 off ; HEADLESS-1 off
@@ -238,6 +238,12 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+## Experimental:
+# enable mirror
+bindsym $mod+h exec nohup wl-mirror eDP-1 ; workspace $ws9
+bindsym $mod+Ctrl+h exec pkill wl-mirror ; workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+
 ## Disabled Hotkeys:
 # Split in Horizontal Orientation
 #bindsym $mod+b split h 
