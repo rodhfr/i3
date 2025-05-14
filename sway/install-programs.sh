@@ -48,6 +48,7 @@ sudo dnf install nautilus -y
 sudo dnf install openssl -y
 sudo dnf install swaybg -y
 sudo dnf install nodejs -y
+sudo dnf install wl-mirror -y
 sudo dnf install pcmanfm -y
 sudo dnf install ydotool -y 
 sudo dnf install fuse-devel -y 
