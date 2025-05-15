@@ -85,8 +85,8 @@ output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 
 
 ############################### Window Rules ###########################################
-assign [class="BoltLauncher"] workspace 1
-assign [class="net-runelite-client-RuneLite"] workspace 1
+#assign [class="BoltLauncher"] workspace 1
+#assign [class="net-runelite-client-RuneLite"] workspace 1
 for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 ########################################################################################
 
