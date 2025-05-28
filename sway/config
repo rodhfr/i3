@@ -37,12 +37,20 @@ exec gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 exec waybar
 # Start polkit for authentication
 exec /usr/bin/lxpolkit
+exec /usr/libexec/gvfsd &
+exec /usr/libexec/gvfsd-fuse /run/user/$(id -u)/gvfs -f &
+exec /usr/libexec/gvfs-udisks2-volume-monitor &
+exec /usr/libexec/gvfs-mtp-volume-monitor &
+
 # Start script for waybar
 exec_always "~/.config/sway/start_waybar.workstation"
 # Start notification daemon
 exec_always swaync
 # Start autotiling for dynamic window tiling
 exec_always autotiling 
+# auto restart wayvnc (any changes with display doesn't break wayvnc)
+exec_always bash -c 'systemctl --user restart wayvnc.service'
+
 
 ## Experimental:
 #exec audiorelay_run
@@ -141,9 +149,9 @@ bindsym $mod+Ctrl+g exec pkill dim
 # HDMI-A-1 only
 #bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 
 # HDMI-A-1 on ; eDP-1 off
-bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service'
 # eDP-1 on ; HDMI-A-1 on
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service' 
 
 ## Experimental:
 # eDP-1 on ; HDMI-A-1 off ; HEADLESS-1 off
@@ -198,16 +206,27 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 # Move Focused Container to Workspace
-bindsym $mod+Shift+1 move container to workspace $ws1 ; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2 ; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3 ; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4 ; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5 ; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6 ; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7 ; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8 ; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9 ; workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1 
+# ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2 
+#; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3 
+#; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4 
+#; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5 
+#; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6 
+#; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7 
+#; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8 
+#; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9 
+#; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10 
+#; workspace $ws10
+
 # Silently Move to Workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
