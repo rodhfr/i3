@@ -49,7 +49,7 @@ exec_always swaync
 # Start autotiling for dynamic window tiling
 exec_always autotiling 
 # auto restart wayvnc (any changes with display doesn't break wayvnc)
-exec_always bash -c 'systemctl --user restart wayvnc.service'
+#exec_always bash -c 'systemctl --user restart wayvnc.service'
 
 
 ## Experimental:
@@ -62,7 +62,8 @@ exec_always bash -c 'systemctl --user restart wayvnc.service'
 output HDMI-A-1 pos 0 0 resolution 1920x1080@74.973Hz
 output eDP-1 pos 1920 0
 
-output HEADLESS-1 resolution 1920x1080@30Hz position 3840 0
+#output HEADLESS-1 resolution 1920x1080@30Hz position 3840 0
+output HEADLESS-1 resolution 1280x720@60Hz position 3840 0
 # output "HEADLESS-1" resolution 1600x720@30Hz position $toset scale 1.2
 
 workspace 1 output HDMI-A-1
@@ -141,6 +142,13 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym $mod+g exec brightnessctl set 1 && pkill dim
 bindsym $mod+Shift+g exec dim -d 0 -p -a 0.4
 bindsym $mod+Ctrl+g exec pkill dim  
+# Xkill Mode
+bindsym $mod+x mode "xkill"
+mode "xkill" {
+bindsym --whole-window button1 kill
+bindsym Escape mode "default"
+bindsym Return mode "default"
+}
 ########################################################################################
 
 
@@ -149,9 +157,11 @@ bindsym $mod+Ctrl+g exec pkill dim
 # HDMI-A-1 only
 #bindsym $mod+m output "eDP-1" disable ; output "HDMI-A-1" scale 3 
 # HDMI-A-1 on ; eDP-1 off
-bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service'
+bindsym $mod+Ctrl+m output "eDP-1" disable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+#; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service'
 # eDP-1 on ; HDMI-A-1 on
-bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 ; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service' 
+bindsym $mod+Shift+m output "eDP-1" enable ; output "HDMI-A-1" enable ; output "HDMI-A-1" scale 1 
+#; exec bash -c 'sleep 0.3 && systemctl --user restart wayvnc.service' 
 
 ## Experimental:
 # eDP-1 on ; HDMI-A-1 off ; HEADLESS-1 off
@@ -180,7 +190,7 @@ bindsym $mod+Shift+f fullscreen toggle
 # Toggle Between Floating and Tilling
 bindsym $mod+k floating toggle, sticky disable
 # Picture in Picture
-bindsym $mod+Ctrl+p sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
+#bindsym $mod+Ctrl+p sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
 bindsym $mod+Ctrl+r sticky enable, floating enable, resize set width 400px height 225px, move position 1600 80
 bindsym $mod+Ctrl+i sticky enable, floating enable, resize set width 400px height 225px, move position 300 10
 # Default Names for Workspaces
@@ -262,7 +272,8 @@ mode "resize" {
 }
 ## Experimental:
 # enable mirror
-bindsym $mod+Shift+h workspace $ws8 ; exec wl-mirror eDP-1 ; workspace $ws9 
+#bindsym $mod+Shift+h workspace $ws8 ; exec wl-mirror eDP-1 ; workspace $ws9 
+bindsym $mod+Shift+h workspace $ws8 ; exec wl-mirror HEADLESS-1 ; workspace $ws9 
 bindsym $mod+h workspace 8 ; workspace 9
 bindsym $mod+Ctrl+h exec pkill wl-mirror ; workspace back_and_forth
 bindsym $mod+Tab workspace back_and_forth
@@ -291,7 +302,7 @@ bindsym $mod+Tab workspace back_and_forth
 
 ################################# Launcher Hotkeys #####################################
 # Launch Menu Launcher
-bindsym $mod+x exec --no-startup-id rofi -show drun -theme dmenu
+bindsym $mod+c exec --no-startup-id rofi -show drun -theme dmenu
 # Launch Terminal
 bindsym $mod+Return exec ghostty
 # Launch Browser
@@ -311,6 +322,7 @@ bindsym $mod+Shift+t exec macopa -Sywy
 ## Screenshot
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png 
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Ctrl+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
 ## Disabled:
 bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
