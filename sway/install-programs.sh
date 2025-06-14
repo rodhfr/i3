@@ -36,6 +36,7 @@ sudo dnf install gedit -y
 sudo dnf install ncurses-devel -y
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing -y
 sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+sudo dnf install ImageMagick -y
 sudo dnf install intel-media-driver -y
 sudo dnf install gnome-software -y
 # more about this change ffmpeg
@@ -114,6 +115,7 @@ sudo dnf install code -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.adamcake.Bolt -y
 flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub org.gnome.Loupe -y
 flatpak install flathub io.github.plrigaux.sysd-manager -y
 flatpak install flathub org.kde.dolphin -y
 flatpak install flathub net.lutris.Lutris -y
