@@ -30,6 +30,7 @@ sudo dnf install xdg-desktop-portal-wlr -y
 sudo dnf install input-remapper -y
 sudo dnf copr enable alternateved/keyd -y
 sudo dnf install keyd -y
+sudo dnf install obs-studio -y
 sudo dnf install golang -y
 sudo dnf install texlive-scheme-basic -y
 sudo dnf install gedit -y
@@ -39,10 +40,12 @@ sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=Package
 sudo dnf install ImageMagick -y
 sudo dnf install intel-media-driver -y
 sudo dnf install gnome-software -y
+sudo dnf install solaar solaar-udev -y
 # more about this change ffmpeg
 # https://rpmfusion.org/Howto/Multimedia
 sudo dnf install bat -y
 sudo dnf install lxpolkit -y
+sudo dnf install gnome-disk-utility -y
 sudo dnf install fuse-overlayfs -y
 sudo dnf install azote -y
 sudo dnf install nautilus -y
@@ -116,16 +119,21 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub com.adamcake.Bolt -y
 flatpak install flathub com.bitwarden.desktop -y
 flatpak install flathub org.gnome.Loupe -y
+flatpak install flathub org.torproject.torbrowser-launcher -y
 flatpak install flathub io.github.plrigaux.sysd-manager -y
-flatpak install flathub org.kde.dolphin -y
+flatpak install flathub org.qbittorrent.qBittorrent -y
 flatpak install flathub net.lutris.Lutris -y
 flatpak install flathub com.discordapp.Discord -y
+flatpak install flathub com.rtosta.zapzap -y
+flatpak install flathub io.github.sigmasd.share -y
+flatpak install flathub com.github.iwalton3.jellyfin-media-player -y
 flatpak install flathub io.github.getnf.embellish -y
+flatpak install flathub org.libreoffice.LibreOffice -y
 flatpak install flathub io.mpv.Mpv -y
-flatpak install flathub io.gitlab.librewolf-community -y
-flatpak install flathub one.ablaze.floorp -y
-flatpak install flathub org.nickvision.tubeconverter -y
-flatpak install flathub it.mijorus.gearlever -y
+flatpak install flathub com.belmoussaoui.Decoder -y
+flatpak install flathub net.agalwood.Motrix -y
+flatpak install flathub com.github.tchx84.Flatseal -y
+flatpak install flathub com.github.johnfactotum.Foliate -y
 # more advanced setup
 #ssh-keygen
 #sudo systemctl start sshd

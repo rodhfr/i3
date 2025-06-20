@@ -114,6 +114,22 @@ input "9610:42:SINO_WEALTH_Gaming_KB__Mouse" {
     pointer_accel 1 # Mouse Sensitivity
 }
 
+input "1133:45110:Pebble_M350s_Mouse" {
+    accel_profile "flat"
+    pointer_accel 0
+}
+
+input "4012:6878:keyd_virtual_pointer" {
+    accel_profile "flat"
+    pointer_accel 0
+}
+
+input "1267:12447:ELAN1200:00_04F3:309F_Mouse" {
+    accel_profile "flat"
+    pointer_accel 0
+}
+
+
 ## Experimental:
 #input type:keyboard {
 #    xkb_layout us,br
