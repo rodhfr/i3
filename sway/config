@@ -85,6 +85,7 @@ workspace 10 output HEADLESS-1
 set $wallpapers_path ~/.config/Wallpapers
 # Randomly select a wallpaper from the folder $wallpapers_path
 output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+bindsym $mod+Shift+w output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 
 ## Experimental:
 # There is this program called azote that does the same as the above but with GUI.
@@ -128,7 +129,6 @@ input "1267:12447:ELAN1200:00_04F3:309F_Mouse" {
     accel_profile "flat"
     pointer_accel 0
 }
-
 
 ## Experimental:
 #input type:keyboard {
@@ -203,11 +203,6 @@ bindsym $mod+a focus left
 bindsym $mod+w focus up 
 bindsym $mod+d focus right
 bindsym $mod+s focus down
-# Move Focused Window
-bindsym $mod+Shift+a move left
-bindsym $mod+Shift+w move down
-bindsym $mod+Shift+d move up
-bindsym $mod+Shift+s move right
 # Toggle Fullscreen Current Window
 bindsym $mod+Shift+f fullscreen toggle
 # Toggle Between Floating and Tilling
@@ -302,6 +297,12 @@ bindsym $mod+Ctrl+h exec pkill wl-mirror ; workspace back_and_forth
 bindsym $mod+Tab workspace back_and_forth
 
 ## Disabled Hotkeys:
+# Move Focused Window
+# bindsym $mod+Shift+a move left
+# bindsym $mod+Shift+w move down
+# bindsym $mod+Shift+d move up
+# bindsym $mod+Shift+s move right
+
 # Split in Horizontal Orientation
 #bindsym $mod+b split h 
 # Split in Vertical Orientation
@@ -347,6 +348,8 @@ bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_$
 bindsym F9 exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d%H%M%S).png && notify-send -t 4000 "📷 Saved to ~/Pictures/Screenshots/"
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy && notify-send -t 4000 "📷 Copied to Clipboard"
 bindsym $mod+Ctrl+p exec notify-send -t 4000 "🎨 Select Hex Colour" && grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy && notify-send -t 4000 "🎨 Grepped to Clipboard"
+## Sharing
+bindsym $mod+Shift+s exec flatpak run io.github.sigmasd.share
 ## Disabled:
 #bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 #bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty

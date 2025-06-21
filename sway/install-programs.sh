@@ -116,24 +116,26 @@ sudo dnf install code -y
 ### ON HOST (NOT INSIDE DISTROBOX)
 # flatpaks installation
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.adamcake.Bolt -y
-flatpak install flathub com.bitwarden.desktop -y
-flatpak install flathub org.gnome.Loupe -y
-flatpak install flathub org.torproject.torbrowser-launcher -y
-flatpak install flathub io.github.plrigaux.sysd-manager -y
-flatpak install flathub org.qbittorrent.qBittorrent -y
-flatpak install flathub net.lutris.Lutris -y
-flatpak install flathub com.discordapp.Discord -y
-flatpak install flathub com.rtosta.zapzap -y
-flatpak install flathub io.github.sigmasd.share -y
-flatpak install flathub com.github.iwalton3.jellyfin-media-player -y
-flatpak install flathub io.github.getnf.embellish -y
-flatpak install flathub org.libreoffice.LibreOffice -y
-flatpak install flathub io.mpv.Mpv -y
-flatpak install flathub com.belmoussaoui.Decoder -y
-flatpak install flathub net.agalwood.Motrix -y
-flatpak install flathub com.github.tchx84.Flatseal -y
-flatpak install flathub com.github.johnfactotum.Foliate -y
+flatpak install --user flathub com.adamcake.Bolt -y
+flatpak install --user flathub com.bitwarden.desktop -y
+flatpak install --user flathub org.gnome.Loupe -y
+flatpak install --user flathub org.gnome.Crosswords -y
+flatpak install --user flathub org.torproject.torbrowser-launcher -y
+flatpak install --system flathub io.github.plrigaux.sysd-manager -y
+flatpak install --user flathub org.qbittorrent.qBittorrent -y
+#flatpak install flathub net.lutris.Lutris -y
+flatpak install --user flathub io.github.josephmawa.Bella -y
+flatpak install --user flathub com.discordapp.Discord -y
+flatpak install --user flathub com.rtosta.zapzap -y
+flatpak install --user flathub io.github.sigmasd.share -y
+flatpak install --user flathub com.github.iwalton3.jellyfin-media-player -y
+flatpak install --user flathub io.github.getnf.embellish -y
+flatpak install --user flathub org.libreoffice.LibreOffice -y
+flatpak install --user flathub io.mpv.Mpv -y
+flatpak install --user flathub com.belmoussaoui.Decoder -y
+flatpak install --user flathub net.agalwood.Motrix -y
+flatpak install --system flathub com.github.tchx84.Flatseal -y
+flatpak install --user flathub com.github.johnfactotum.Foliate -y
 # more advanced setup
 #ssh-keygen
 #sudo systemctl start sshd
