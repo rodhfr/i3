@@ -50,7 +50,7 @@ exec_always swaync
 exec_always autotiling 
 # auto restart wayvnc (any changes with display doesn't break wayvnc)
 #exec_always bash -c 'systemctl --user restart wayvnc.service'
-
+exec wl-paste --watch cliphist store
 
 ## Experimental:
 #exec audiorelay_run
@@ -327,6 +327,8 @@ bindsym $mod+Tab workspace back_and_forth
 ################################# Launcher Hotkeys #####################################
 # Launch Menu Launcher
 bindsym $mod+c exec --no-startup-id rofi -show drun -theme dmenu
+# launch clipboard manager
+bindsym $mod+u exec cliphist list | rofi -dmenu -theme sidebar | cliphist decode | wl-copy
 # Launch Terminal
 bindsym $mod+Return exec ghostty
 # Launch Browser
@@ -353,7 +355,7 @@ bindsym $mod+Shift+s exec flatpak run io.github.sigmasd.share
 ## Disabled:
 #bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 #bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
-bindsym $mod+y exec ghostty -e nvim
+bindsym $mod+y exec ghostty -e nvim -n ~/Downloads/Notes/swap.md
 ########################################################################################
 
 
