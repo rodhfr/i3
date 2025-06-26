@@ -353,6 +353,7 @@ bindsym $mod+Shift+s exec flatpak run io.github.sigmasd.share
 ## Disabled:
 #bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 #bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
+bindsym $mod+y exec ghostty -e nvim
 ########################################################################################
 
 
