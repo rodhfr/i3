@@ -52,6 +52,7 @@ exec_always autotiling
 #exec_always bash -c 'systemctl --user restart wayvnc.service'
 exec wl-paste --watch cliphist store
 exec wl-paste --type image --watch cliphist store
+#exec clipse -listen
 
 ## Experimental:
 #exec audiorelay_run
@@ -99,6 +100,7 @@ bindsym $mod+Shift+w output * bg `find $wallpapers_path -type f | shuf -n 1` fil
 #assign [class="BoltLauncher"] workspace 1
 #assign [class="net-runelite-client-RuneLite"] workspace 1
 for_window [app_id="mpv"] sticky enable, floating enable, resize set width 400px height 225px, move position 1500 10
+for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt # style window to look nice
 ########################################################################################
 
 
@@ -155,6 +157,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Brightness Control
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym $mod+i exec brightnessctl set 10%+
+bindsym $mod+j exec brightnessctl set 10%-
 # Dimmer Control
 bindsym $mod+g exec brightnessctl set 1 && pkill dim
 bindsym $mod+Shift+g exec dim -d 0 -p -a 0.4
@@ -330,7 +334,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+c exec --no-startup-id rofi -show drun -theme dmenu
 # launch clipboard manager
 bindsym $mod+u exec rofi -modi clipboard:~/.config/sway/cliphist-rofi-img -show clipboard -show-icons -theme rounded-gray-dark
-bindsym $mod+o exec rofi -modi clipboard:~/.config/sway/cliphist-rofi-img -show clipboard -show-icons -theme fullscreen-preview 
+bindsym $mod+o exec rofi -modi clipboard:~/.config/sway/cliphist-rofi-img -show clipboard -show-icons -theme fullscreen-preview-clipboard -filter "binary"
 # Launch Terminal
 bindsym $mod+Return exec ghostty
 # Launch Browser
@@ -358,6 +362,7 @@ bindsym $mod+Shift+s exec flatpak run io.github.sigmasd.share
 #bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 #bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
 bindsym $mod+y exec ghostty -e nvim -n ~/Downloads/Notes/swap.md
+#bindsym $mod+Shift+u exec kitty --class clipse -e clipse                               # bind floating shell with clipse TUI
 ########################################################################################
 
 
