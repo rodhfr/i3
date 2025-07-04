@@ -15,6 +15,14 @@ workspace_auto_back_and_forth yes
 
 
 
+############################# Modifier Keys ############################################
+
+set $tty alacritty
+set $alttty kitty
+set $alt2tty foot
+########################################################################################
+
+
 ################################# Font for Window Title ################################
 font pango:monospace 12
 # Will also be used by the bar unless a different font is used in the bar {} block below.
@@ -52,6 +60,7 @@ exec_always autotiling
 #exec_always bash -c 'systemctl --user restart wayvnc.service'
 exec wl-paste --watch cliphist store
 exec wl-paste --type image --watch cliphist store
+exec snapserver -d
 #exec clipse -listen
 
 ## Experimental:
@@ -336,7 +345,8 @@ bindsym $mod+c exec --no-startup-id rofi -show drun -theme dmenu
 bindsym $mod+u exec rofi -modi clipboard:~/.config/sway/cliphist-rofi-img -show clipboard -show-icons -theme rounded-gray-dark
 bindsym $mod+o exec rofi -modi clipboard:~/.config/sway/cliphist-rofi-img -show clipboard -show-icons -theme fullscreen-preview-clipboard -filter "binary"
 # Launch Terminal
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec $tty
+bindsym $mod+Shift+Return exec $alttty
 # Launch Browser
 #bindsym $mod+f exec flatpak run com.brave.Browser
 bindsym $mod+f exec firefox
@@ -361,7 +371,8 @@ bindsym $mod+Shift+s exec flatpak run io.github.sigmasd.share
 ## Disabled:
 #bindsym $mod+Ctrl+f exec ~/.config/sway/floatingfox
 #bindsym $mod+Ctrl+k exec ~/.config/sway/HotkeyKitty
-bindsym $mod+y exec ghostty -e nvim -n ~/Downloads/Notes/swap.md
+bindsym $mod+y exec $tty -e nvim -n ~/Downloads/Notes/swap.md
+bindsym $mod+Shift+y exec $tty -e nvim -n ~/.config/sway/config
 #bindsym $mod+Shift+u exec kitty --class clipse -e clipse                               # bind floating shell with clipse TUI
 ########################################################################################
 
